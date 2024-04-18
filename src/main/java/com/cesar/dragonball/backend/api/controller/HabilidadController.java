@@ -59,7 +59,7 @@ public class HabilidadController {
         }
 
         response.put("mensaje", "La habilidad ha sido creada con éxito!");
-        response.put("habilida", habilidad);
+        response.put("habilida", habilidadNew);
 
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
