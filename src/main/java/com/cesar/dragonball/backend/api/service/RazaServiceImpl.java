@@ -4,7 +4,6 @@ import com.cesar.dragonball.backend.api.model.Raza;
 import com.cesar.dragonball.backend.api.repository.RazaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

@@ -5,7 +5,6 @@ import com.cesar.dragonball.backend.api.service.RazaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -34,7 +33,7 @@ public class RazaController {
 
         Map<String, Object> response = new HashMap<>();
 
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             List<String> errors = result.getFieldErrors()
                     .stream()
                     .map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())

@@ -3,7 +3,6 @@ package com.cesar.dragonball.backend.api.controller;
 import com.cesar.dragonball.backend.api.model.Transformacion;
 import com.cesar.dragonball.backend.api.service.TransformacionService;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -28,13 +27,13 @@ public class TransformacionController {
         return transformacionService.findAll();
     }
 
-    @PostMapping("/universos")
+    @PostMapping("/transformaciones")
     public ResponseEntity<?> create(@Valid @RequestBody Transformacion transformacion, BindingResult result) {
         Transformacion transformacionNew = null;
 
         Map<String, Object> response = new HashMap<>();
 
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             List<String> errors = result.getFieldErrors()
                     .stream()
                     .map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
@@ -47,7 +46,7 @@ public class TransformacionController {
 
         try {
             transformacionNew = transformacionService.save(transformacion);
-        } catch(DataAccessException e) {
+        } catch (DataAccessException e) {
             response.put("mensaje", "Error al realizar el insert en la base de datos");
             response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 
