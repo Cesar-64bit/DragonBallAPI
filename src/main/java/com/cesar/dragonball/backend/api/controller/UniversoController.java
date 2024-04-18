@@ -53,7 +53,7 @@ public class UniversoController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        response.put("mensaje", "El universi ha sido creado con éxito!");
+        response.put("mensaje", "El universo ha sido creado con éxito!");
         response.put("universo", universoNew);
 
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
